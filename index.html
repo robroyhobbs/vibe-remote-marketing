@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>vibe-remote — Marketing Kit</title>
+  <meta name="description" content="Competitive positioning, differentiation, and first-10-prompts starter pack for vibe-remote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #17171a;
+      --surface2: #1e1e22;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0f2;
+      --muted: rgba(240,240,242,0.45);
+      --accent: #7c6dfa;
+      --accent2: #4fc3f7;
+      --green: #4caf88;
+      --red: #f07070;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px; font-weight: 700; letter-spacing: -0.02em;
+      color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-link {
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    /* ── LANG TOGGLE ── */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 2px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .lang-btn {
+      padding: 4px 11px;
+      border-radius: 5px;
+      font-size: 12px; font-weight: 600;
+      cursor: pointer; border: none;
+      background: transparent;
+      color: var(--muted);
+      transition: all .2s;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 24px 60px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(124,109,250,0.12);
+      border: 1px solid rgba(124,109,250,0.25);
+      padding: 4px 12px; border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800; letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: 16px; color: var(--muted);
+      max-width: 520px; margin: 0 auto;
+    }
+
+    /* ── SECTION ── */
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .section-desc { font-size: 15px; color: var(--muted); margin-bottom: 32px; }
+
+    /* ── DIFFERENTIATORS ── */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .diff-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      transition: border-color .2s;
+    }
+    .diff-card:hover { border-color: rgba(124,109,250,0.35); }
+    .diff-vs { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+    .diff-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .diff-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── COMPARISON TABLE ── */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead tr { background: var(--surface2); }
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+    th:first-child { min-width: 160px; }
+    td {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      vertical-align: top;
+    }
+    td:first-child { font-weight: 500; color: var(--text); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .tag-yes { color: var(--green); font-weight: 600; }
+    .tag-no  { color: var(--red); }
+    .tag-hi  { color: var(--accent); font-weight: 600; }
+    .col-vibe { color: var(--accent2); font-weight: 600; }
+
+    /* ── PROMPTS ── */
+    .prompts-list { display: flex; flex-direction: column; gap: 14px; }
+    .prompt-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .prompt-card:hover { border-color: rgba(124,109,250,0.35); }
+    .prompt-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px 10px;
+    }
+    .prompt-num {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: rgba(124,109,250,0.15);
+      border: 1px solid rgba(124,109,250,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: var(--accent);
+      flex-shrink: 0;
+    }
+    .prompt-title { font-size: 15px; font-weight: 600; }
+    .prompt-scenario { font-size: 12px; color: var(--muted); padding: 0 20px 10px; }
+    .prompt-code {
+      margin: 0 16px 16px;
+      background: #0d1117;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 9px;
+      padding: 12px 16px;
+      font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+      font-size: 12.5px;
+      color: #a8d0ff;
+      line-height: 1.6;
+      position: relative;
+      cursor: pointer;
+      user-select: all;
+    }
+    .prompt-code::after {
+      content: 'copy';
+      position: absolute; top: 8px; right: 10px;
+      font-size: 10px; font-weight: 600; letter-spacing: .04em;
+      color: rgba(255,255,255,0.2);
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+    .prompt-code.copied::after { content: 'copied ✓'; color: var(--green); }
+
+    /* ── MARKETING IDEAS ── */
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .idea-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .idea-icon { font-size: 22px; margin-bottom: 10px; }
+    .idea-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+    .idea-card p { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 12px; color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── HIDDEN LANG ── */
+    [lang-key] {}
+    body.zh [data-en] { display: none !important; }
+    body.zh [data-zh] { display: revert !important; }
+    body.en [data-zh] { display: none !important; }
+    body.en [data-en] { display: revert !important; }
+    [data-zh] { display: none; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 56px 16px 40px; }
+      .container { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body class="en">
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://vibe-remote.com" target="_blank">
+    ●&nbsp;<span>vibe-remote</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="https://vibe-remote.com/doc" target="_blank" data-en>Docs</a>
+    <a class="nav-link" href="https://vibe-remote.com/doc" target="_blank" data-zh>文档</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge" data-en>Marketing Kit · 2026</div>
+  <div class="hero-badge" data-zh>营销材料 · 2026</div>
+  <h1 data-en>Your dev machine,<br /><em>from anywhere.</em></h1>
+  <h1 data-zh>随时随地，<br /><em>掌控你的开发机</em></h1>
+  <p class="hero-sub" data-en>
+    Competitive positioning, differentiation notes, and a first-10-prompts starter pack for vibe-remote.
+  </p>
+  <p class="hero-sub" data-zh>
+    vibe-remote 的竞品定位分析、差异化说明，以及入门 10 大提示词。
+  </p>
+</div>
+
+<!-- DIFFERENTIATORS -->
+<section>
+  <div class="container">
+    <div class="section-label" data-en>Differentiation</div>
+    <div class="section-label" data-zh>核心差异</div>
+    <h2 class="section-title" data-en>Why vibe-remote wins</h2>
+    <h2 class="section-title" data-zh>为什么选择 vibe-remote</h2>
+    <p class="section-desc" data-en>One-sentence positioning vs. each major competitor.</p>
+    <p class="section-desc" data-zh>与各主要竞品的一句话差异化定位。</p>
+
+    <div class="diff-grid">
+      <!-- vs OpenClaw -->
+      <div class="diff-card">
+        <div class="diff-vs" data-en>vs OpenClaw</div>
+        <div class="diff-vs" data-zh>对比 OpenClaw</div>
+        <h3 data-en>Built for developers, not bots</h3>
+        <h3 data-zh>专为开发者打造，而非通用机器人</h3>
+        <p data-en>OpenClaw is a general-purpose automation bot that happens to work via Telegram. vibe-remote is a purpose-built dev tool — native iOS, zero-knowledge relay, real persistent sessions.</p>
+        <p data-zh>OpenClaw 是通过 Telegram 等消息应用运作的通用自动化工具。vibe-remote 是专为开发工作流打造的工具——原生 iOS、零知识中继、真正的持久会话。</p>
+      </div>
+
+      <!-- vs Claude Code Remote -->
+      <div class="diff-card">
+        <div class="diff-vs" data-en>vs Claude Code Remote</div>
+        <div class="diff-vs" data-zh>对比 Claude Code Remote</div>
+        <h3 data-en>Free, model-agnostic, no lock-in</h3>
+        <h3 data-zh>免费、不绑定模型、无供应商锁定</h3>
+        <p data-en>Anthropic's version requires a $100/mo Claude Max plan and locks you to one model. vibe-remote is free forever, works with Claude, Codex, Gemini, and OpenCode.</p>
+        <p data-zh>Anthropic 官方版需要 $100/月的 Claude Max 订阅，且只支持一个模型。vibe-remote 永久免费，支持 Claude、Codex、Gemini 和 OpenCode。</p>
+      </div>
+
+      <!-- vs Remote Codetrol -->
+      <div class="diff-card">
+        <div class="diff-vs" data-en>vs Remote Codetrol</div>
+        <div class="diff-vs" data-zh>对比 Remote Codetrol</div>
+        <h3 data-en>Radical simplicity — no editor by design</h3>
+        <h3 data-zh>极简设计——刻意不内置编辑器</h3>
+        <p data-en>Codetrol brings an IDE-like review UI to mobile. vibe-remote takes the opposite bet: no editor at all, just chat. Let the AI do the editing. You do the thinking.</p>
+        <p data-zh>Codetrol 将 IDE 风格的 review 界面带到了移动端。vibe-remote 走了相反的路：完全没有编辑器，只有对话。让 AI 写代码，你来做决策。</p>
+      </div>
+
+      <!-- vs SSH/Tailscale -->
+      <div class="diff-card">
+        <div class="diff-vs" data-en>vs SSH + Tailscale</div>
+        <div class="diff-vs" data-zh>对比 SSH + Tailscale</div>
+        <h3 data-en>Zero config. Scan a QR code.</h3>
+        <h3 data-zh>零配置，扫码即连</h3>
+        <p data-en>SSH + Tailscale works, but requires network setup, port config, and a terminal app. vibe-remote works through any NAT, any firewall, with no IT tickets. 60 seconds to first session.</p>
+        <p data-zh>SSH + Tailscale 可行，但需要配置网络、端口和终端应用。vibe-remote 穿透任何 NAT 和防火墙，无需任何 IT 配置，60 秒内完成首次连接。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="container">
+    <div class="section-label" data-en>Comparison</div>
+    <div class="section-label" data-zh>竞品对比</div>
+    <h2 class="section-title" data-en>Feature Matrix</h2>
+    <h2 class="section-title" data-zh>功能对比矩阵</h2>
+    <p class="section-desc" data-en>How vibe-remote stacks up against the field.</p>
+    <p class="section-desc" data-zh>vibe-remote 与竞品的全面对比。</p>
+
+    <!-- EN table -->
+    <div class="table-wrap" data-en>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="col-vibe">vibe-remote</th>
+            <th>OpenClaw</th>
+            <th>Claude Code Remote</th>
+            <th>Remote Codetrol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Interface</td><td class="col-vibe">Native iOS app</td><td>Telegram / iMessage</td><td>Anthropic mobile app</td><td>Mobile IDE overlay</td></tr>
+          <tr><td>AI Providers</td><td class="col-vibe tag-hi">Claude, Codex, Gemini, OpenCode</td><td>Claude, GPT, etc.</td><td class="tag-no">Claude only</td><td>Any agent</td></tr>
+          <tr><td>Setup time</td><td class="col-vibe tag-yes">~60 seconds</td><td>Medium</td><td>Medium</td><td>Medium</td></tr>
+          <tr><td>VPN required?</td><td class="col-vibe tag-yes">No</td><td class="tag-yes">No</td><td class="tag-yes">No</td><td class="tag-no">Sometimes</td></tr>
+          <tr><td>Self-host relay</td><td class="col-vibe tag-yes">Yes</td><td class="tag-no">No</td><td class="tag-no">No</td><td class="tag-no">No</td></tr>
+          <tr><td>Team sessions</td><td class="col-vibe tag-yes">Yes — no seat licenses</td><td>Limited</td><td class="tag-no">No</td><td class="tag-yes">Yes</td></tr>
+          <tr><td>Privacy model</td><td class="col-vibe tag-hi">Zero-knowledge, E2EE</td><td>Routes via 3rd-party apps</td><td>Anthropic-hosted</td><td>N/A</td></tr>
+          <tr><td>Free tier</td><td class="col-vibe tag-yes">Free forever</td><td class="tag-yes">Open source</td><td class="tag-no">Requires $100/mo plan</td><td>Unclear</td></tr>
+          <tr><td>Built-in editor</td><td class="col-vibe">No (by design)</td><td>No</td><td>No</td><td class="tag-yes">Yes</td></tr>
+          <tr><td>Voice commands</td><td class="col-vibe tag-yes">Yes</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Live localhost preview</td><td class="col-vibe tag-yes">Yes</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Scheduled tasks</td><td class="col-vibe tag-yes">Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ZH table -->
+    <div class="table-wrap" data-zh>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="col-vibe">vibe-remote</th>
+            <th>OpenClaw</th>
+            <th>Claude Code Remote</th>
+            <th>Remote Codetrol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>界面</td><td class="col-vibe">原生 iOS 应用</td><td>Telegram / iMessage</td><td>Anthropic 移动端应用</td><td>移动 IDE 覆盖层</td></tr>
+          <tr><td>AI 提供商</td><td class="col-vibe tag-hi">Claude、Codex、Gemini、OpenCode</td><td>Claude、GPT 等</td><td class="tag-no">仅支持 Claude</td><td>任意 Agent</td></tr>
+          <tr><td>配置时间</td><td class="col-vibe tag-yes">约 60 秒</td><td>中等</td><td>中等</td><td>中等</td></tr>
+          <tr><td>需要 VPN？</td><td class="col-vibe tag-yes">不需要</td><td class="tag-yes">不需要</td><td class="tag-yes">不需要</td><td class="tag-no">有时需要</td></tr>
+          <tr><td>自托管中继</td><td class="col-vibe tag-yes">支持</td><td class="tag-no">不支持</td><td class="tag-no">不支持</td><td class="tag-no">不支持</td></tr>
+          <tr><td>团队会话</td><td class="col-vibe tag-yes">支持，无席位限制</td><td>有限支持</td><td class="tag-no">不支持</td><td class="tag-yes">支持</td></tr>
+          <tr><td>隐私模型</td><td class="col-vibe tag-hi">零知识，端对端加密</td><td>通过第三方消息平台</td><td>由 Anthropic 托管</td><td>N/A</td></tr>
+          <tr><td>免费层级</td><td class="col-vibe tag-yes">永久免费</td><td class="tag-yes">开源</td><td class="tag-no">需 $100/月套餐</td><td>不明确</td></tr>
+          <tr><td>内置编辑器</td><td class="col-vibe">无（刻意为之）</td><td>无</td><td>无</td><td class="tag-yes">有</td></tr>
+          <tr><td>语音指令</td><td class="col-vibe tag-yes">支持</td><td>不支持</td><td>不支持</td><td>不支持</td></tr>
+          <tr><td>本地服务实时预览</td><td class="col-vibe tag-yes">支持</td><td>不支持</td><td>不支持</td><td>不支持</td></tr>
+          <tr><td>定时任务</td><td class="col-vibe tag-yes">支持</td><td>支持</td><td>不支持</td><td>不支持</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PROMPTS -->
+<section>
+  <div class="container">
+    <div class="section-label" data-en>Starter Pack</div>
+    <div class="section-label" data-zh>入门提示词</div>
+    <h2 class="section-title" data-en>First 10 Prompts</h2>
+    <h2 class="section-title" data-zh>入门 10 大提示词</h2>
+    <p class="section-desc" data-en>Real tasks. One prompt each. Click any code block to copy.</p>
+    <p class="section-desc" data-zh>真实任务，一条提示词搞定。点击代码块即可复制。</p>
+
+    <div class="prompts-list">
+
+      <!-- 1 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">1</div>
+          <div class="prompt-title" data-en>"What did the AI build last night?"</div>
+          <div class="prompt-title" data-zh>「昨晚 AI 构建了什么？」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Morning review from bed. No laptop needed.</p>
+        <p class="prompt-scenario" data-zh>躺在床上做早间 review，不需要开电脑。</p>
+        <div class="prompt-code" onclick="copyCode(this)">read git log --since="yesterday" and summarize what changed in plain english</div>
+      </div>
+
+      <!-- 2 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">2</div>
+          <div class="prompt-title" data-en>"Something broke in prod."</div>
+          <div class="prompt-title" data-zh>「生产环境出问题了」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Couch, airport, restaurant — doesn't matter.</p>
+        <p class="prompt-scenario" data-zh>沙发上、机场里、餐厅里——都能处理。</p>
+        <div class="prompt-code" onclick="copyCode(this)">check the last 50 lines of logs in ./logs/error.log and tell me what's failing</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">3</div>
+          <div class="prompt-title" data-en>"Ship the hotfix."</div>
+          <div class="prompt-title" data-zh>「发布热修复」</div>
+        </div>
+        <p class="prompt-scenario" data-en>The beach hotfix, in one prompt.</p>
+        <p class="prompt-scenario" data-zh>海滩上一条指令修复线上问题。</p>
+        <div class="prompt-code" onclick="copyCode(this)">create a branch fix/[issue], fix the bug, run tests, commit, push, and open a PR</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">4</div>
+          <div class="prompt-title" data-en>"Remind me what this project does."</div>
+          <div class="prompt-title" data-zh>「这个项目是干什么的？」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Picking up a project after a few days away.</p>
+        <p class="prompt-scenario" data-zh>几天没看代码，快速重新上下文。</p>
+        <div class="prompt-code" onclick="copyCode(this)">read the README and the last 5 git commits.
+give me a 5-sentence summary of what this project does and where it's headed.</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">5</div>
+          <div class="prompt-title" data-en>"Run the tests. Fix what's broken."</div>
+          <div class="prompt-title" data-zh>「跑测试，修复报错」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Set it going, check back in 10 minutes.</p>
+        <p class="prompt-scenario" data-zh>发出去等 10 分钟，回来看结果。</p>
+        <div class="prompt-code" onclick="copyCode(this)">run the test suite, show me any failures, then fix them one by one</div>
+      </div>
+
+      <!-- 6 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">6</div>
+          <div class="prompt-title" data-en>"We need a feature. Build it."</div>
+          <div class="prompt-title" data-zh>「实现一个新功能」</div>
+        </div>
+        <p class="prompt-scenario" data-en>The full TDD loop delegated to AI while you're on a walk.</p>
+        <p class="prompt-scenario" data-zh>散步时把完整 TDD 流程交给 AI。</p>
+        <div class="prompt-code" onclick="copyCode(this)">add [feature] to [module]. write tests first, then implement. commit when tests pass.</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">7</div>
+          <div class="prompt-title" data-en>"Review the PR before I merge."</div>
+          <div class="prompt-title" data-zh>「合并前先 review 一下 PR」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Code review from the coffee shop.</p>
+        <p class="prompt-scenario" data-zh>咖啡馆里完成 code review。</p>
+        <div class="prompt-code" onclick="copyCode(this)">show me the diff for the last PR on this branch and tell me if anything looks risky</div>
+      </div>
+
+      <!-- 8 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">8</div>
+          <div class="prompt-title" data-en>"Is the server healthy?"</div>
+          <div class="prompt-title" data-zh>「服务器还正常吗？」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Quick health check before a demo.</p>
+        <p class="prompt-scenario" data-zh>演示前快速确认服务状态。</p>
+        <div class="prompt-code" onclick="copyCode(this)">check if the dev server is running. if not, start it and confirm it's up on port 3000</div>
+      </div>
+
+      <!-- 9 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">9</div>
+          <div class="prompt-title" data-en>"Clean this up."</div>
+          <div class="prompt-title" data-zh>「清理这段代码」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Tech debt from your pocket.</p>
+        <p class="prompt-scenario" data-zh>口袋里搞定技术债。</p>
+        <div class="prompt-code" onclick="copyCode(this)">look at [file], refactor for readability and consistency with the rest of the codebase, then show me what changed</div>
+      </div>
+
+      <!-- 10 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-num">10</div>
+          <div class="prompt-title" data-en>"End of day wrap-up."</div>
+          <div class="prompt-title" data-zh>「每日收尾总结」</div>
+        </div>
+        <p class="prompt-scenario" data-en>Daily standup summary without ever opening a laptop.</p>
+        <p class="prompt-scenario" data-zh>不开电脑，生成每日站会更新。</p>
+        <div class="prompt-code" onclick="copyCode(this)">summarize what was built today, what tests are passing, what's still open,
+and write a one-paragraph standup update I can paste into Slack</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING IDEAS -->
+<section>
+  <div class="container">
+    <div class="section-label" data-en>Content Ideas</div>
+    <div class="section-label" data-zh>内容创意</div>
+    <h2 class="section-title" data-en>Marketing Angles</h2>
+    <h2 class="section-title" data-zh>营销切入点</h2>
+    <p class="section-desc" data-en>Ways to activate these prompts as distribution content.</p>
+    <p class="section-desc" data-zh>将这些提示词转化为传播内容的方式。</p>
+
+    <div class="ideas-grid">
+      <div class="idea-card">
+        <div class="idea-icon">𝕏</div>
+        <h3 data-en>Twitter / X Thread</h3>
+        <h3 data-zh>推文 / X 帖子</h3>
+        <p data-en>"10 things I did from my phone this week (no laptop opened)" — one prompt per tweet, real output screenshots.</p>
+        <p data-zh>"本周我用手机完成的 10 件开发任务（没打开过电脑）"——每条推文一个提示词，附真实输出截图。</p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">📧</div>
+        <h3 data-en>Launch Email</h3>
+        <h3 data-zh>发布邮件</h3>
+        <p data-en>"10 things you can do from your couch tonight" — each prompt is a section with a 1-line outcome.</p>
+        <p data-zh>"今晚你可以在沙发上完成的 10 件开发任务"——每个提示词配一行成果描述。</p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">📱</div>
+        <h3 data-en>In-app Onboarding</h3>
+        <h3 data-zh>应用内引导</h3>
+        <p data-en>"Try your first prompt" onboarding flow — show these 10 as suggestions in the iOS app's new session screen.</p>
+        <p data-zh>「试试你的第一条提示词」引导流程——在 iOS 新建会话界面展示这 10 条建议。</p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">📄</div>
+        <h3 data-en>/prompts Docs Page</h3>
+        <h3 data-zh>文档 /prompts 页面</h3>
+        <p data-en>Add a copyable prompts library to the docs site — discoverability via SEO, shareable by users.</p>
+        <p data-zh>在文档站添加可复制的提示词库——提升 SEO 可发现性，方便用户分享。</p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">🎬</div>
+        <h3 data-en>Demo Video</h3>
+        <h3 data-zh>演示视频</h3>
+        <p data-en>Screen record: phone in one hand, prompt #3 ("ship the hotfix") executing live. No narration needed.</p>
+        <p data-zh>录屏：一手持机，实时执行提示词 #3「发布热修复」。无需解说。</p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">🆚</div>
+        <h3 data-en>Comparison Landing Page</h3>
+        <h3 data-zh>对比落地页</h3>
+        <p data-en>"vibe-remote vs Claude Code Remote" — free, model-agnostic, no $100/mo subscription angle hits hard.</p>
+        <p data-zh>"vibe-remote vs Claude Code Remote"——免费、不绑定模型、无 $100/月订阅，这个角度很有力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p data-en>Built with ❤️ for <a href="https://vibe-remote.com" target="_blank">vibe-remote</a> · <a href="https://vibe-remote.com/doc" target="_blank">Docs</a> · <a href="https://github.com/ymzuiku/vibe-remote" target="_blank">GitHub</a></p>
+  <p data-zh>为 <a href="https://vibe-remote.com" target="_blank">vibe-remote</a> 打造 ❤️ · <a href="https://vibe-remote.com/doc" target="_blank">文档</a> · <a href="https://github.com/ymzuiku/vibe-remote" target="_blank">GitHub</a></p>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.remove('en', 'zh');
+    document.body.classList.add(lang);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang || (lang === 'zh' && btn.textContent === '中文'));
+    });
+  }
+
+  function copyCode(el) {
+    const text = el.innerText.replace(/^copy$/m, '').replace(/^copied ✓$/m, '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      el.classList.add('copied');
+      setTimeout(() => el.classList.remove('copied'), 2000);
+    });
+  }
+
+  // Sync lang toggle button state
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.textContent.trim() === '中文' ? 'zh' : 'en';
+      setLang(lang);
+    });
+  });
+</script>
+</body>
+</html>
