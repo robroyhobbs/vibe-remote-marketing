@@ -239,6 +239,103 @@
     .idea-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
     .idea-card p { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
 
+    /* ── GTM STRATEGY ── */
+    .funnel {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 0; margin: 0 0 40px;
+    }
+    .funnel-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      min-width: 130px;
+    }
+    .funnel-step .f-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .funnel-step .f-val { font-size: 14px; font-weight: 600; margin-top: 2px; }
+    .funnel-step.highlight { border-color: rgba(124,109,250,0.4); background: rgba(124,109,250,0.08); }
+    .funnel-step.highlight .f-val { color: var(--accent); }
+    .funnel-arrow { font-size: 18px; color: var(--muted); padding: 0 8px; }
+
+    .phase-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      transition: border-color .2s;
+    }
+    .phase-card:hover { border-color: rgba(124,109,250,0.3); }
+    .phase-num {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(124,109,250,0.12);
+      border: 1px solid rgba(124,109,250,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: var(--accent);
+      flex-shrink: 0;
+    }
+    .phase-content h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .phase-content p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+    .phase-content ul { margin: 8px 0 0 0; padding-left: 16px; }
+    .phase-content ul li { font-size: 13px; color: var(--muted); margin-bottom: 4px; line-height: 1.5; }
+    .phase-content ul li strong { color: var(--text); }
+    .phase-badge {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 2px 8px; border-radius: 100px;
+      margin-left: 8px; vertical-align: middle;
+    }
+    .badge-critical { background: rgba(240,112,112,0.15); color: var(--red); border: 1px solid rgba(240,112,112,0.25); }
+    .badge-parallel { background: rgba(79,195,247,0.12); color: var(--accent2); border: 1px solid rgba(79,195,247,0.2); }
+    .badge-conversion { background: rgba(76,175,136,0.12); color: var(--green); border: 1px solid rgba(76,175,136,0.2); }
+
+    .hn-template {
+      background: #0d1117;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      cursor: pointer;
+    }
+    .hn-template:hover { border-color: rgba(255,102,0,0.3); }
+    .hn-bar {
+      background: #ff6600;
+      padding: 8px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .hn-bar span { font-size: 13px; font-weight: 700; color: #000; }
+    .hn-bar .copy-hint { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.5); text-transform: uppercase; letter-spacing: .06em; }
+    .hn-body { padding: 16px 20px; }
+    .hn-title { font-size: 15px; font-weight: 600; color: #e6edf3; margin-bottom: 14px; }
+    .hn-body p { font-size: 13px; color: rgba(230,237,243,0.6); line-height: 1.7; margin-bottom: 8px; }
+    .hn-body p:last-child { margin-bottom: 0; }
+    .hn-template.copied .hn-bar .copy-hint::after { content: ' ✓ Copied'; }
+
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .channel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .channel-rank {
+      font-size: 11px; font-weight: 700;
+      min-width: 20px; color: var(--accent);
+      padding-top: 1px;
+    }
+    .channel-info h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+    .channel-info p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -612,6 +709,259 @@ and write a one-paragraph standup update I can paste into Slack</div>
   </div>
 </section>
 
+<!-- GTM STRATEGY -->
+<section>
+  <div class="container">
+    <div class="section-label" data-en>Go-To-Market</div>
+    <div class="section-label" data-zh>GTM 策略</div>
+    <h2 class="section-title" data-en>First 100 Downloads &amp; First Paying Customer</h2>
+    <h2 class="section-title" data-zh>前 100 次下载与第一位付费用户</h2>
+    <p class="section-desc" data-en>
+      Zero HN or Reddit presence yet — the launch moment hasn't happened. That's the opportunity.
+      The funnel is simple: free discovery → install → hit free limits → upgrade to PRO.
+    </p>
+    <p class="section-desc" data-zh>
+      目前在 HN 和 Reddit 上零曝光——发布时刻还未到来，这正是机会所在。
+      转化漏斗很简单：免费发现 → 安装 → 触达免费限制 → 升级 PRO。
+    </p>
+
+    <!-- FUNNEL -->
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="f-label" data-en>Discover</div>
+        <div class="f-label" data-zh>发现</div>
+        <div class="f-val" data-en>HN / Reddit / X</div>
+        <div class="f-val" data-zh>HN / V2EX / 掘金</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="f-label" data-en>Install</div>
+        <div class="f-label" data-zh>安装</div>
+        <div class="f-val" data-en>App Store + agent</div>
+        <div class="f-val" data-zh>App Store + Agent</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="f-label" data-en>Use it</div>
+        <div class="f-label" data-zh>使用</div>
+        <div class="f-val" data-en>Free tier (3 dirs)</div>
+        <div class="f-val" data-zh>免费版（3 个目录）</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step highlight">
+        <div class="f-label" data-en>Hit limits</div>
+        <div class="f-label" data-zh>触达限制</div>
+        <div class="f-val" data-en>&gt;3 dirs or &gt;1 cron</div>
+        <div class="f-val" data-zh>超过 3 目录或 1 定时任务</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step highlight">
+        <div class="f-label" data-en>Upgrade</div>
+        <div class="f-label" data-zh>升级</div>
+        <div class="f-val" data-en>PRO via App Store</div>
+        <div class="f-val" data-zh>App Store 内购 PRO</div>
+      </div>
+    </div>
+
+    <!-- PHASES EN -->
+    <div data-en>
+      <div class="phase-list">
+
+        <div class="phase-card">
+          <div class="phase-num">1</div>
+          <div class="phase-content">
+            <h3>Build the Demo Video <span class="phase-badge badge-critical">Do first</span></h3>
+            <p>The single most important pre-launch asset. Without it, conversion from "interested" to "installed" is cut in half. Everything else links to it.</p>
+            <ul>
+              <li><strong>Format:</strong> 30–60 sec screen record, no narration. Phone in frame, prompt typed, code runs on Mac, result streams back.</li>
+              <li><strong>Best prompt to demo:</strong> "create a branch fix/memory-leak, find the bug, fix it, run tests, commit and push"</li>
+              <li><strong>Show:</strong> The QR scan → connected → prompt → output. That's the whole story.</li>
+              <li><strong>Upload to:</strong> YouTube (unlisted for now), Twitter/X, and embed on the product page.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">2</div>
+          <div class="phase-content">
+            <h3>Launch Day — Hit All Channels Simultaneously</h3>
+            <p>One coordinated day creates social proof and momentum. Staggered posts look like nobody cares. Same day = traction compounds.</p>
+            <ul>
+              <li><strong>9am:</strong> Post Show HN (template below)</li>
+              <li><strong>9:15am:</strong> Post to r/ClaudeAI, r/programming, r/ExperiencedDevs</li>
+              <li><strong>9:30am:</strong> Twitter/X thread — "10 things I did from my phone this week"</li>
+              <li><strong>Same day:</strong> Product Hunt launch (submit 2 weeks early for scheduling)</li>
+              <li><strong>Respond to every single comment personally</strong> — this is how HN posts go from 10 points to 100+</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">3</div>
+          <div class="phase-content">
+            <h3>Chinese Developer Market <span class="phase-badge badge-parallel">Run in parallel</span></h3>
+            <p>The product already has Chinese language support — this is a built-in distribution advantage most tools don't have. The Chinese developer community is underserved on this type of tool.</p>
+            <ul>
+              <li><strong>V2EX</strong> — Chinese equivalent of HN. Post in /go/programmer. This audience will immediately understand and appreciate the product.</li>
+              <li><strong>掘金 (Juejin)</strong> — Largest Chinese developer blogging platform. Write a "I built this 100% with AI" article.</li>
+              <li><strong>少数派 (Sspai)</strong> — Chinese productivity/tech media. Submit for editorial coverage.</li>
+              <li><strong>WeChat developer groups</strong> — 1:1 seeding to Claude Code / AI coding groups</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">4</div>
+          <div class="phase-content">
+            <h3>"Built 100% by AI" — The Meta Story <span class="phase-badge badge-parallel">High leverage</span></h3>
+            <p>This is marketing gold that most competitors can't copy. The blog post already exists — it just needs amplification.</p>
+            <ul>
+              <li><strong>HN story post:</strong> "I built vibe-remote entirely with AI agents — here's what changed in how I think about software" — different from the Show HN, more philosophical, targets the AI-native developer debate</li>
+              <li><strong>Twitter thread:</strong> What it's like to ship a product where you never manually edit a file. Real screenshots of Claude Code doing the work.</li>
+              <li><strong>YouTube:</strong> 5-min screencast of building a feature using vibe-remote to control Claude Code — meta demo of the tool building itself</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">5</div>
+          <div class="phase-content">
+            <h3>Convert Free → PRO <span class="phase-badge badge-conversion">Revenue</span></h3>
+            <p>Free tier limits (3 directories, 1 cron) are well-calibrated — active devs hit them naturally. The conversion moment is when the tool becomes a habit.</p>
+            <ul>
+              <li><strong>Trigger 1:</strong> Developer working on &gt;3 projects simultaneously (very common)</li>
+              <li><strong>Trigger 2:</strong> Wants more than 1 scheduled task (daily build, nightly tests)</li>
+              <li><strong>Trigger 3:</strong> Invites a teammate — Team Mode surfaces the PRO value clearly</li>
+              <li><strong>First paying customer profile:</strong> A tech lead or indie dev who is actively vibe-coding across multiple repos and travels often</li>
+              <li><strong>Nudge:</strong> When limit is hit, in-app message: "You're using vibe-remote across X projects — PRO removes all limits."</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HN TEMPLATE -->
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">Show HN Post Template <span style="font-size:12px;font-weight:400;color:var(--muted);margin-left:8px;">Click to copy</span></h3>
+      <div class="hn-template" onclick="copyHN(this)">
+        <div class="hn-bar">
+          <span>Hacker News — Show HN</span>
+          <span class="copy-hint">Click to copy</span>
+        </div>
+        <div class="hn-body">
+          <div class="hn-title">Show HN: vibe-remote – control Claude Code from your iPhone, no VPN needed (free)</div>
+          <p>I wanted to code from my phone without setting up Tailscale, SSH tunnels, or any of that. So I built vibe-remote — a native iOS app that connects to Claude Code (or Codex/Gemini) running on your Mac, through a zero-config relay, E2EE.</p>
+          <p>How it works: run `vibe-remote` on your Mac, scan a QR code on your iPhone, and you're connected. Chat with the AI directly — it executes on your machine and streams results back in real time. Works through any NAT, any firewall.</p>
+          <p>A few things that feel different from other approaches: no editor by design (the AI does the editing, you direct it), sessions never die (cloud-managed persistence), and it works with any AI provider not just Claude.</p>
+          <p>Also: the whole thing was built 100% by AI agents. Every feature, refactor, and fix was executed by Claude Code. That fact shapes the design — if an AI can do it, I didn't build a UI for it.</p>
+          <p>Free forever with a reasonable free tier. PRO trial included for new users, no credit card. Would love feedback — especially from anyone who's tried the SSH + tmux approach and wants to compare.</p>
+          <p style="color:rgba(230,237,243,0.35);font-size:12px;">→ https://vibe-remote.com</p>
+        </div>
+      </div>
+
+      <!-- CHANNEL PRIORITY -->
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">Channel Priority</h3>
+      <div class="channel-grid">
+        <div class="channel-card"><div class="channel-rank">#1</div><div class="channel-info"><h4>Hacker News</h4><p>Highest-quality developer audience. One good Show HN = 50–200 installs. Respond to every comment.</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#2</div><div class="channel-info"><h4>V2EX</h4><p>Chinese HN. Same developer profile, underserved by AI tools. Chinese UI is already built.</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#3</div><div class="channel-info"><h4>r/ClaudeAI</h4><p>Direct overlap — Claude Code users are exactly the target. Post after HN.</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#4</div><div class="channel-info"><h4>Twitter / X</h4><p>"10 things from my phone" thread. Short video clip. Tag @AnthropicAI, @OpenAI.</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#5</div><div class="channel-info"><h4>Product Hunt</h4><p>Schedule launch for a Tuesday or Wednesday. Good for an SEO-backlink spike and App Store social proof.</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#6</div><div class="channel-info"><h4>掘金 / 少数派</h4><p>Chinese developer platforms. "Built 100% by AI" article. Can re-use translated content.</p></div></div>
+      </div>
+    </div>
+
+    <!-- PHASES ZH -->
+    <div data-zh>
+      <div class="phase-list">
+
+        <div class="phase-card">
+          <div class="phase-num">1</div>
+          <div class="phase-content">
+            <h3>制作演示视频 <span class="phase-badge badge-critical">优先完成</span></h3>
+            <p>发布前最重要的素材。没有它，"感兴趣"到"安装"的转化率会减少一半。所有渠道都需要链接到它。</p>
+            <ul>
+              <li><strong>格式：</strong>30–60 秒屏幕录制，无需解说。手机入镜，输入提示词，Mac 执行代码，结果实时返回。</li>
+              <li><strong>最佳演示提示词：</strong>"create a branch fix/memory-leak, find the bug, fix it, run tests, commit and push"</li>
+              <li><strong>展示流程：</strong>扫码 → 连接 → 发送提示词 → 看到输出。这就是整个故事。</li>
+              <li><strong>上传至：</strong>YouTube（暂时不公开）、Twitter/X，并嵌入产品页面。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">2</div>
+          <div class="phase-content">
+            <h3>发布日——同步覆盖所有渠道</h3>
+            <p>同一天发布能形成社交证明和势头。分散发布看起来像没人关注。同天发布 = 流量相互叠加。</p>
+            <ul>
+              <li><strong>上午 9 点：</strong>发布 Show HN（使用下方模板）</li>
+              <li><strong>上午 9:15：</strong>发布至 r/ClaudeAI、r/programming、r/ExperiencedDevs</li>
+              <li><strong>上午 9:30：</strong>Twitter/X 帖子——"本周我用手机完成的 10 件开发任务"</li>
+              <li><strong>同天：</strong>Product Hunt 发布（提前两周提交审核）</li>
+              <li><strong>亲自回复每一条评论</strong>——这是 HN 帖子从 10 分涨到 100+ 的关键</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">3</div>
+          <div class="phase-content">
+            <h3>中文开发者市场 <span class="phase-badge badge-parallel">并行推进</span></h3>
+            <p>产品已内置中文支持——这是大多数工具没有的分发优势。中文开发者社区对此类工具的需求尚未被满足。</p>
+            <ul>
+              <li><strong>V2EX</strong>——中文版 HN，发布至 /go/programmer。这里的用户会立即理解并欣赏这个产品。</li>
+              <li><strong>掘金</strong>——中国最大开发者博客平台。写一篇"我用 AI 100% 构建了这个工具"的文章。</li>
+              <li><strong>少数派</strong>——中文科技媒体，申请编辑推荐。</li>
+              <li><strong>微信开发者群</strong>——在 Claude Code / AI 编程相关群组进行定向推广</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">4</div>
+          <div class="phase-content">
+            <h3>「100% 由 AI 构建」——元叙事角度 <span class="phase-badge badge-parallel">高杠杆</span></h3>
+            <p>这是大多数竞品无法复制的营销优势。博客文章已经存在——只需要放大传播。</p>
+            <ul>
+              <li><strong>HN 故事帖：</strong>"我用 AI Agent 完整构建了 vibe-remote——这改变了我对软件的思考方式"——与 Show HN 不同，更具哲学性，面向 AI 原生开发者争论</li>
+              <li><strong>Twitter 帖子：</strong>展示从不手动编辑文件来交付产品的感受。附上 Claude Code 工作中的真实截图。</li>
+              <li><strong>YouTube：</strong>5 分钟录屏，展示用 vibe-remote 控制 Claude Code 来构建新功能的过程——工具构建自身的元演示</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">5</div>
+          <div class="phase-content">
+            <h3>免费转付费转化 <span class="phase-badge badge-conversion">营收</span></h3>
+            <p>免费版限制（3 个目录，1 个定时任务）设计合理——活跃开发者会自然触达。转化时机是当工具成为习惯之后。</p>
+            <ul>
+              <li><strong>触发点 1：</strong>同时开发 3 个以上项目（非常普遍）</li>
+              <li><strong>触发点 2：</strong>需要超过 1 个定时任务（每日构建、夜间测试）</li>
+              <li><strong>触发点 3：</strong>邀请队友——团队模式会清晰呈现 PRO 的价值</li>
+              <li><strong>第一位付费用户画像：</strong>跨多个代码库进行 vibe-coding、经常出差的技术负责人或独立开发者</li>
+              <li><strong>转化推送：</strong>触达限制时，应用内消息："您正在 X 个项目中使用 vibe-remote——PRO 可移除所有限制。"</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CHANNEL PRIORITY ZH -->
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">渠道优先级</h3>
+      <div class="channel-grid">
+        <div class="channel-card"><div class="channel-rank">#1</div><div class="channel-info"><h4>Hacker News</h4><p>质量最高的开发者社区。一篇好的 Show HN = 50–200 次安装。亲自回复每条评论。</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#2</div><div class="channel-info"><h4>V2EX</h4><p>中文版 HN。相同的开发者画像，AI 工具市场尚未饱和。中文界面已内置。</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#3</div><div class="channel-info"><h4>r/ClaudeAI</h4><p>高度重合——Claude Code 用户正是目标用户。在 HN 发布后跟进。</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#4</div><div class="channel-info"><h4>Twitter / X</h4><p>"手机完成的 10 件任务"帖子，附短视频。@AnthropicAI @OpenAI。</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#5</div><div class="channel-info"><h4>Product Hunt</h4><p>选择周二或周三发布。有助于 SEO 外链和 App Store 社交证明。</p></div></div>
+        <div class="channel-card"><div class="channel-rank">#6</div><div class="channel-info"><h4>掘金 / 少数派</h4><p>中文开发者平台。发布"100% 由 AI 构建"文章，可复用已翻译内容。</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <p data-en>Built with ❤️ for <a href="https://vibe-remote.com" target="_blank">vibe-remote</a> · <a href="https://vibe-remote.com/doc" target="_blank">Docs</a> · <a href="https://github.com/ymzuiku/vibe-remote" target="_blank">GitHub</a></p>
@@ -635,7 +985,17 @@ and write a one-paragraph standup update I can paste into Slack</div>
     });
   }
 
-  // Sync lang toggle button state
+  function copyHN(el) {
+    const title = el.querySelector('.hn-title').innerText;
+    const paras = [...el.querySelectorAll('.hn-body p')].map(p => p.innerText).join('\n\n');
+    const text = title + '\n\n' + paras;
+    navigator.clipboard.writeText(text).then(() => {
+      el.classList.add('copied');
+      setTimeout(() => el.classList.remove('copied'), 2500);
+    });
+  }
+
+  
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.textContent.trim() === '中文' ? 'zh' : 'en';
