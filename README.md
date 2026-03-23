@@ -1,21 +1,23 @@
-# vibe-remote Marketing Kit
+# vibe-remote marketing
 
-Bilingual (EN / 中文) marketing page covering:
+A small bilingual GitHub Pages site for evolving vibe-remote marketing strategy.
 
-- Competitive differentiation vs OpenClaw, Claude Code Remote, Remote Codetrol, SSH+Tailscale
-- Feature comparison matrix
-- First 10 Prompts starter pack
-- Content / distribution ideas
+## Pages
 
-## View locally
+- `index.html` — strategy review, what to simplify, PMF framing
+- `launch.html` — launch assets, timeline, and copy templates
+- `roadmap.html` — 0-30 day roadmap, feedback loops, and metrics
+- `communities.html` — communities to post in, posting angles, founder outreach
+- `prompts.html` — starter prompts and proof-generation ideas
+- `styles.css` — shared styles
+- `app.js` — EN/中文 toggle + copy helpers
 
-```
+## Local preview
+
+```bash
 open index.html
 ```
 
-## Deploy to GitHub Pages
+## Publish
 
-1. Push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Source: **Deploy from branch → main → / (root)**
-4. Your page will be live at `https://<you>.github.io/vibe-remote-marketing`
+Push to `main`; GitHub Pages serves the root automatically.
